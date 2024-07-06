@@ -1,14 +1,22 @@
 package com.example.applicationlauncherandwindoworganizer;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private VBox buttonContainer;
+
+    private ButtonHandler buttonHandler;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void initialize() {
+        buttonHandler = new ButtonHandler(buttonContainer);
+    }
+
+    @FXML
+    public void addButton() {
+        buttonHandler.addButton("Button " + (buttonHandler.getButtonList().size() + 1));
     }
 }
