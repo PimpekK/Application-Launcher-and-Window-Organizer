@@ -2,11 +2,11 @@ package com.example.applicationlauncherandwindoworganizer;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 
 public class HelloController {
     @FXML
-    private VBox buttonContainer;
+    private GridPane buttonContainer;
 
     private ButtonHandler buttonHandler;
 
@@ -18,5 +18,13 @@ public class HelloController {
     @FXML
     public void addButton() {
         buttonHandler.addButton("Button " + (buttonHandler.getButtonList().size() + 1));
+    }
+
+    public void previousButton() {
+        buttonHandler.reduceGridPaneId();
+    }
+
+    public void nextButton() {
+        buttonHandler.increaseGridPaneId();
     }
 }

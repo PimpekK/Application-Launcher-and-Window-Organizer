@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.applicationlauncherandwindoworganizer.HelloController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -53,7 +54,7 @@
       </HBox>
    </top>
    <right>
-      <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" onAction="#nextButton">
          <font>
             <Font size="25.0" />
          </font>
@@ -63,7 +64,7 @@
       </Button>
    </right>
    <left>
-      <Button mnemonicParsing="false" text="Previous" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" text="Previous" BorderPane.alignment="CENTER" onAction="#previousButton">
          <BorderPane.margin>
             <Insets bottom="90.0" left="10.0" />
          </BorderPane.margin>
@@ -83,10 +84,13 @@
       </Label>
    </bottom>
    <center>
-      <VBox fx:id="buttonContainer" alignment="CENTER" spacing="10">
+      <GridPane fx:id="buttonContainer" alignment="CENTER" hgap="10" vgap="10">
          <padding>
             <Insets top="10" right="10" bottom="10" left="10"/>
          </padding>
-      </VBox>
+         <stylesheets>
+            <URL value="@buttonStyles.css" />
+         </stylesheets>
+      </GridPane>
    </center>
 </BorderPane>
