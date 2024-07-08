@@ -14,7 +14,7 @@ public class ButtonHandler {
     public ButtonHandler(GridPane gridPane) {
         this.gridPane = gridPane;
         this.buttonList = new ArrayList<>();
-        gridPaneId = 1;
+        gridPaneId = 0;
     }
 
     public void addButton(String buttonText) {
@@ -25,19 +25,27 @@ public class ButtonHandler {
     }
 
     private void handleButtonAction(Button button) {
-        // Dodaj tutaj kod, który ma się wykonać po kliknięciu przycisku
+        if(button.getStyleClass().contains("delete")) {
+            buttonList.remove(button);
+            updateGridPane();
+        }
+        else {
+
+        }
         System.out.println("Clicked: " + button.getText());
     }
 
     private void updateGridPane() {
         gridPane.getChildren().clear();
-        for (int i = 0; i < buttonList.size(); i++) {
+        int visibleButtonIndex = 0;
+        for (int i = 0; i < buttonList.size(); ++i) {
             if((i / 4) == gridPaneId) {
                 Button button = buttonList.get(i);
                 button.getStyleClass().add("buttonOnPage");
-                int row = (i / 4) * 2 + (i % 4) / 2;
-                int col = (i % 4) % 2 * 2;
+                int row = (visibleButtonIndex / 2) * 2;
+                int col = (visibleButtonIndex % 2) * 2;
                 gridPane.add(button, col, row);
+                visibleButtonIndex++;
             }
         }
     }
@@ -58,5 +66,16 @@ public class ButtonHandler {
             gridPaneId++;
             updateGridPane();
         }
+    }
+
+    public void giveDeleteClassToButtons() {
+        boolean hasDeleteClass = buttonList.get(0).getStyleClass().contains("delete");
+        for(int i = 0; i < buttonList.size(); ++i) {
+            if(hasDeleteClass)
+                buttonList.get(i).getStyleClass().remove("delete");
+            else
+                buttonList.get(i).getStyleClass().add("delete");
+        }
+        updateGridPane();
     }
 }

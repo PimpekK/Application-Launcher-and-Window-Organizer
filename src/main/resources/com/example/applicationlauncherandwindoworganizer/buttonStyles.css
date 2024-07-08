@@ -1,8 +1,13 @@
 .buttonOnPage {
     -fx-graphic: url('path/to/your/image.png');
-    -fx-padding: 10px;
+    -fx-padding: 50px;
     -fx-background-size: 100px 150px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-text-fill: transparent;
+}
+
+.delete {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
 }

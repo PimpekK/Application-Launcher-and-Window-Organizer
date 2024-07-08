@@ -20,11 +20,18 @@ public class HelloController {
         buttonHandler.addButton("Button " + (buttonHandler.getButtonList().size() + 1));
     }
 
+    @FXML
     public void previousButton() {
         buttonHandler.reduceGridPaneId();
     }
 
+    @FXML
     public void nextButton() {
         buttonHandler.increaseGridPaneId();
+    }
+
+    @FXML
+    public void deleteButton() {
+        buttonHandler.giveDeleteClassToButtons();
     }
 }

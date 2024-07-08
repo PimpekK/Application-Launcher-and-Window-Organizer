@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.net.URL?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.applicationlauncherandwindoworganizer.HelloController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" blendMode="SRC_ATOP" mnemonicParsing="false" text="Open">
+            <Button mnemonicParsing="false" onAction="#previousButton" text="Previous">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#addButton" text="Add">
                <font>
                   <Font size="40.0" />
                </font>
@@ -22,18 +27,7 @@
                   <Insets left="30.0" right="30.0" />
                </HBox.margin>
             </Button>
-            <Button blendMode="SRC_ATOP" mnemonicParsing="false" text="Add" onAction="#addButton">
-               <font>
-                  <Font size="40.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <HBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </HBox.margin>
-            </Button>
-            <Button blendMode="SRC_ATOP" mnemonicParsing="false" text="Delete">
+            <Button blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#deleteButton" text="Delete">
                <font>
                   <Font size="40.0" />
                </font>
@@ -47,32 +41,17 @@
                   <Insets left="30.0" right="30.0" />
                </HBox.margin>
             </Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#nextButton" text="Next">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
       </HBox>
    </top>
-   <right>
-      <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" onAction="#nextButton">
-         <font>
-            <Font size="25.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets bottom="90.0" right="10.0" />
-         </BorderPane.margin>
-      </Button>
-   </right>
-   <left>
-      <Button mnemonicParsing="false" text="Previous" BorderPane.alignment="CENTER" onAction="#previousButton">
-         <BorderPane.margin>
-            <Insets bottom="90.0" left="10.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Button>
-   </left>
    <bottom>
       <Label text="Label" BorderPane.alignment="CENTER">
          <font>
@@ -86,7 +65,7 @@
    <center>
       <GridPane fx:id="buttonContainer" alignment="CENTER" hgap="10" vgap="10">
          <padding>
-            <Insets top="10" right="10" bottom="10" left="10"/>
+            <Insets bottom="10" left="10" right="10" top="10" />
          </padding>
          <stylesheets>
             <URL value="@buttonStyles.css" />
